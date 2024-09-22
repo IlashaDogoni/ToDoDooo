@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		638F31B02CA01D7B006F43C4 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F31AF2CA01D7B006F43C4 /* Item.swift */; };
 		63A5DB8C2C9EDF5700F0F6C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5DB8B2C9EDF5700F0F6C0 /* AppDelegate.swift */; };
 		63A5DB8E2C9EDF5800F0F6C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5DB8D2C9EDF5800F0F6C0 /* SceneDelegate.swift */; };
 		63A5DB902C9EDF5800F0F6C0 /* ToDoListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5DB8F2C9EDF5800F0F6C0 /* ToDoListVC.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		638F31AF2CA01D7B006F43C4 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		63A5DB882C9EDF5700F0F6C0 /* ToDoDooo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoDooo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63A5DB8B2C9EDF5700F0F6C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63A5DB8D2C9EDF5800F0F6C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				63A5DB8B2C9EDF5700F0F6C0 /* AppDelegate.swift */,
 				63A5DB8D2C9EDF5800F0F6C0 /* SceneDelegate.swift */,
 				63A5DB8F2C9EDF5800F0F6C0 /* ToDoListVC.swift */,
+				638F31AF2CA01D7B006F43C4 /* Item.swift */,
 				63A5DB912C9EDF5800F0F6C0 /* Main.storyboard */,
 				63A5DB972C9EDF5900F0F6C0 /* Assets.xcassets */,
 				63A5DB992C9EDF5900F0F6C0 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				638F31B02CA01D7B006F43C4 /* Item.swift in Sources */,
 				63A5DB962C9EDF5800F0F6C0 /* ToDoDooo.xcdatamodeld in Sources */,
 				63A5DB902C9EDF5800F0F6C0 /* ToDoListVC.swift in Sources */,
 				63A5DB8C2C9EDF5700F0F6C0 /* AppDelegate.swift in Sources */,

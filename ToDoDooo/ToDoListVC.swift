@@ -9,11 +9,23 @@ import UIKit
 
 class ToDoListVC: UITableViewController {
     
-    var items = ["Find Keys", "Call the police", "Smoke some..."]
+    var defaults = UserDefaults.standard
+    
+    var items = [Item]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
+        
+        print(dataFilePath!)
+        
+        if let itemArray = defaults.array(forKey: "ToDoListArray") as? [Item] {
+            items = itemArray
+     }
+            let newItem = Item()
+            newItem.title = "Find keys"
+            items.append(newItem)
     }
 
     //TableViewStuff
@@ -23,7 +35,12 @@ class ToDoListVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
-        cell.textLabel?.text = items[indexPath.row]
+        
+        let item = items[indexPath.row]
+        
+        cell.textLabel?.text = item.title
+        
+        cell.accessoryType = item.done ? .checkmark : .none
         
         return cell
     }
@@ -32,15 +49,9 @@ class ToDoListVC: UITableViewController {
         print(items[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
         
-      /* if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark{
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-        } else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        }
-       */
-        //^^^^^^ refactored
-        tableView.cellForRow(at: indexPath)?.accessoryType =
-            (tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark) ? .none : .checkmark
+        items[indexPath.row].done = !items[indexPath.row].done
+        tableView.reloadData()
+     
     }
 
     //AddItems Button
@@ -53,13 +64,13 @@ class ToDoListVC: UITableViewController {
         
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
             
-            if textField.text != nil || textField.text != "" {
-                self.items.append(textField.text!)
+            if textField.text != nil && textField.text != "" {
+                let newItem = Item()
+                newItem.title = textField.text!
+                self.items.append(newItem)
+                self.defaults.set(self.items, forKey: "ToDoListArray")
                 self.tableView.reloadData()
             }
-            
-            
-            
         }
         
         alert.addTextField { (alertTextfield) in
@@ -68,9 +79,6 @@ class ToDoListVC: UITableViewController {
         }
             alert.addAction(action)
             present(alert, animated: true, completion: nil)
-        
     }
-    
-    
 }
 
